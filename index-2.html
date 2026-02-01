@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>สล็อตเดโม่ 🎰</title>
+<style>
+  body{
+    font-family: system-ui, sans-serif;
+    background:#111;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+  }
+  .slot-box{
+    background:#222;
+    padding:30px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+    width:320px;
+  }
+  .reels{
+    display:flex;
+    justify-content:space-between;
+    margin:20px 0;
+  }
+  .reel{
+    width:80px;
+    height:80px;
+    background:#000;
+    border-radius:12px;
+    font-size:48px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  button{
+    padding:12px 24px;
+    font-size:16px;
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+  }
+  .note{
+    font-size:12px;
+    opacity:.7;
+    margin-top:10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="slot-box">
+  <h2>สล็อตเดโม่ 🎰</h2>
+
+  <div class="reels">
+    <div class="reel" id="r1">?</div>
+    <div class="reel" id="r2">?</div>
+    <div class="reel" id="r3">?</div>
+  </div>
+
+  <button onclick="spin()">กดสุ่ม</button>
+
+  <div class="note">* เดโม่เพื่อความบันเทิง ไม่ได้เงินจริง *</div>
+</div>
+
+<script>
+function spin(){
+  const reels = ["r1","r2","r3"];
+  let count = 0;
+
+  const interval = setInterval(()=>{
+    reels.forEach(id=>{
+      document.getElementById(id).textContent =
+        Math.floor(Math.random()*10);
+    });
+    count++;
+    if(count > 10){
+      clearInterval(interval);
+      // จบที่ 777 เสมอ (เดโม่)
+      document.getElementById("r1").textContent = "7";
+      document.getElementById("r2").textContent = "7";
+      document.getElementById("r3").textContent = "7";
+    }
+  },100);
+}
+</script>
+
+</body>
+</html>
